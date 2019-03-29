@@ -12,8 +12,8 @@ self.__precacheManifest = [
     "url": "/deck-gl-presentation/static/js/runtime~main.992bdc0c.js"
   },
   {
-    "revision": "0cc4666a948a6089caaf",
-    "url": "/deck-gl-presentation/static/js/main.0cc4666a.chunk.js"
+    "revision": "86d744b3d621ace981f7",
+    "url": "/deck-gl-presentation/static/js/main.86d744b3.chunk.js"
   },
   {
     "revision": "83b51a0b4e5250370e10",
@@ -24,7 +24,7 @@ self.__precacheManifest = [
     "url": "/deck-gl-presentation/static/css/1.291e474a.chunk.css"
   },
   {
-    "revision": "4a4140482c66ce29944d3d55efe07bf4",
+    "revision": "1dcbf1278e3fc0e7118d9572a35879ab",
     "url": "/deck-gl-presentation/index.html"
   }
 ];
