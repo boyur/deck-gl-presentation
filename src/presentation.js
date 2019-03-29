@@ -79,6 +79,12 @@ export default class Presentation extends Component {
             </Appear>
         </Slide>
         {/* Slide 4 */}
+        <Slide transition={['fade']} bgColor="primary">
+          <Heading size={4} textColor="secondary">
+            deck.gl + mapbox-gl-js
+          </Heading>
+        </Slide>
+        {/* Slide 5 */}
         <Slide transition={['fade']} bgColor="white">
           <Heading size={6} textColor="primary">
             {'mapbox-gl-js'}
@@ -88,7 +94,7 @@ export default class Presentation extends Component {
           </Heading>
           <Image src={after} />
         </Slide>
-        {/* Slide 5 */}
+        {/* Slide 6 */}
         <Slide transition={['fade']} bgColor="white">
           <Heading size={6} textColor="primary">
             {'mapbox-gl-js'}
