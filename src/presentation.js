@@ -6,7 +6,6 @@ import {
   Deck,
   Heading,
   Slide,
-  SlideSet,
   Appear,
   Image,
   List,
@@ -18,6 +17,7 @@ import {
 } from 'spectacle';
 
 import TripsDemo from './components/TripsDemo';
+import PerformanceDemo from './components/PerformanceDemo';
 
 // Import theme
 import createTheme from 'spectacle/lib/themes/default';
@@ -26,7 +26,10 @@ import createTheme from 'spectacle/lib/themes/default';
 import after from './images/after.png';
 import before from './images/before.png';
 import hex from './images/hex.png';
-import deckLine from './images/deck-line.png';
+import arc from './images/arc.png';
+import models from './images/mesh.png';
+import trips from './images/trips.png';
+import screengrid from './images/screengrid.png';
 
 // Require CSS
 require('normalize.css');
@@ -109,105 +112,110 @@ export default class Presentation extends Component {
             </Appear>
         </Slide>
         {/* --------------- */}
-        <SlideSet>
-          <Slide transition={['fade']} bgColor="primary">
-            <Heading size={4} textColor="secondary">
-              deck.gl + mapbox-gl-js
-            </Heading>
-          </Slide>
-          {/* --------------- */}
-          <Slide transition={['fade']} bgColor="white">
-            <Heading size={6} textColor="primary">
-              {'mapbox-gl-js'}
-              <br />
-              <br />
-              {'< 0.50.0'}
-            </Heading>
-            <Image src={after} />
-          </Slide>
-          {/* --------------- */}
-          <Slide transition={['fade']} bgColor="white">
-            <Heading size={6} textColor="primary">
-              {'mapbox-gl-js'}
-              <br />
-              <br />
-              {'0.50.0'}
-            </Heading>
-            <Image src={before} />
-          </Slide>
-          {/* --------------- */}
-          <Slide transition={['fade']} bgColor="primary">
-            <Heading size={2} textColor="secondary" margin={50}>
-              Layers
-            </Heading>
-            <Heading size={4} textColor="secondary" margin={50}>
-              Mapbox vs deck.gl
-            </Heading>
-          </Slide>
-          {/* --------------- */}
-          <Slide transition={['fade']} bgColor="primary">
-            <Table>
+        <Slide transition={['fade']} bgColor="primary">
+          <Heading size={4} textColor="secondary">
+            deck.gl + mapbox-gl-js
+          </Heading>
+        </Slide>
+        {/* --------------- */}
+        <Slide transition={['fade']} bgColor="white">
+          <Heading size={6} textColor="primary">
+            {'mapbox-gl-js'}
+            <br />
+            <br />
+            {'< 0.50.0'}
+          </Heading>
+          <Image src={after} />
+        </Slide>
+        {/* --------------- */}
+        <Slide transition={['fade']} bgColor="white">
+          <Heading size={6} textColor="primary">
+            {'mapbox-gl-js'}
+            <br />
+            <br />
+            {'0.50.0'}
+          </Heading>
+          <Image src={before} />
+        </Slide>
+        {/* --------------- */}
+        <Slide transition={['fade']} bgColor="primary">
+          <Heading size={2} textColor="secondary" margin={50}>
+            Layers
+          </Heading>
+          <Heading size={4} textColor="secondary" margin={50}>
+            Mapbox vs deck.gl
+          </Heading>
+        </Slide>
+        {/* --------------- */}
+        <Slide transition={['fade']} bgColor="primary">
+          <Table>
+            <TableRow>
+              <TableHeaderItem>mapbox</TableHeaderItem>
+              <TableHeaderItem>deck.gl</TableHeaderItem>
+            </TableRow>
+            <Appear>
               <TableRow>
-                <TableHeaderItem>mapbox</TableHeaderItem>
-                <TableHeaderItem>deck.gl</TableHeaderItem>
+                <TableItem>Circle</TableItem>
+                <TableItem>Scatterplot</TableItem>
               </TableRow>
-              <Appear>
-                <TableRow>
-                  <TableItem>Circle</TableItem>
-                  <TableItem>Scatterplot</TableItem>
-                </TableRow>
-              </Appear>
-              <Appear>
-                <TableRow>
-                  <TableItem>Fill</TableItem>
-                  <TableItem>Polygon</TableItem>
-                </TableRow>
-              </Appear>
-              <Appear>
-                <TableRow>
-                  <TableItem>Line</TableItem>
-                  <TableItem>Line</TableItem>
-                </TableRow>
-              </Appear>
-              <Appear>
-                <TableRow>
-                  <TableItem>Symbol</TableItem>
-                  <TableItem>Icon</TableItem>
-                </TableRow>
-              </Appear>
-              <Appear>
-                <TableRow>
-                  <TableItem />
-                  <TableItem><b>Arc</b></TableItem>
-                </TableRow>
-              </Appear>
-              <Appear>
-                <TableRow>
-                  <TableItem />
-                  <TableItem><b>Hexagon</b></TableItem>
-                </TableRow>
-              </Appear>
-              <Appear>
-                <TableRow>
-                  <TableItem />
-                  <TableItem><b>Grid</b></TableItem>
-                </TableRow>
-              </Appear>
-              <Appear>
-                <TableRow>
-                  <TableItem />
-                  <TableItem><b>Mesh*</b></TableItem>
-                </TableRow>
-              </Appear>
-              <Appear>
-                <TableRow>
-                  <TableItem />
-                  <TableItem><b>Trips*</b></TableItem>
-                </TableRow>
-              </Appear>
-            </Table>
-          </Slide>
-        </SlideSet>
+            </Appear>
+            <Appear>
+              <TableRow>
+                <TableItem>Fill</TableItem>
+                <TableItem>Polygon</TableItem>
+              </TableRow>
+            </Appear>
+            <Appear>
+              <TableRow>
+                <TableItem>Line</TableItem>
+                <TableItem>Line</TableItem>
+              </TableRow>
+            </Appear>
+            <Appear>
+              <TableRow>
+                <TableItem>Symbol</TableItem>
+                <TableItem>Icon</TableItem>
+              </TableRow>
+            </Appear>
+            <Appear>
+              <TableRow>
+                <TableItem />
+                <TableItem><b>Arc</b></TableItem>
+              </TableRow>
+            </Appear>
+            <Appear>
+              <TableRow>
+                <TableItem />
+                <TableItem><b>Hexagon</b></TableItem>
+              </TableRow>
+            </Appear>
+            <Appear>
+              <TableRow>
+                <TableItem />
+                <TableItem><b>ScreenGrid</b></TableItem>
+              </TableRow>
+            </Appear>
+            <Appear>
+              <TableRow>
+                <TableItem />
+                <TableItem><b>Mesh*</b></TableItem>
+              </TableRow>
+            </Appear>
+            <Appear>
+              <TableRow>
+                <TableItem />
+                <TableItem><b>Trips*</b></TableItem>
+              </TableRow>
+            </Appear>
+          </Table>
+        </Slide>
+        {/* --------------- */}
+        <Slide transition={['fade']} bgColor="primary">
+          <Heading size={4} textColor="secondary" margin={50}>
+            Arc
+          </Heading>
+          <Image src={arc} width={800} height={500} />
+        </Slide>
         {/* --------------- */}
         <Slide transition={['fade']} bgColor="primary">
           <Heading size={4} textColor="secondary" margin={50}>
@@ -218,9 +226,40 @@ export default class Presentation extends Component {
         {/* --------------- */}
         <Slide transition={['fade']} bgColor="primary">
           <Heading size={4} textColor="secondary" margin={50}>
-            Line
+            ScreenGrid
           </Heading>
-          <Image src={deckLine} width={800} height={500} />
+          <Image src={screengrid} width={800} height={500} />
+        </Slide>
+        {/* --------------- */}
+        <Slide transition={['fade']} bgColor="primary">
+          <Heading size={4} textColor="secondary" margin={50}>
+            Mesh
+          </Heading>
+          <Image src={models} width={800} height={500} />
+        </Slide>
+        {/* --------------- */}
+        <Slide transition={['fade']} bgColor="primary">
+          <Heading size={4} textColor="secondary" margin={50}>
+            Trips
+          </Heading>
+          <Image src={trips} width={800} height={500} />
+        </Slide>
+        {/* --------------- */}
+        <Slide transition={['fade']} bgColor="primary">
+          <Heading size={3} textColor="secondary" margin={50}>
+            Призводительность
+          </Heading>
+          <Heading size={4} textColor="secondary" margin={50}>
+            Mapbox vs deck.gl
+          </Heading>
+        </Slide>
+        <Slide transition={['fade']} bgColor="primary" textColor="primary">
+          <PerformanceDemo />
+        </Slide>
+        <Slide transition={['fade']} bgColor="primary">
+          <Heading size={2} textColor="secondary" margin={50}>
+            Конец
+          </Heading>
         </Slide>
       </Deck>
     );
