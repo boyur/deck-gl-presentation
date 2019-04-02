@@ -13,7 +13,8 @@ import {
   Table,
   TableRow,
   TableHeaderItem,
-  TableItem
+  TableItem,
+  CodePane
 } from 'spectacle';
 
 import TripsDemo from './components/TripsDemo';
@@ -30,6 +31,14 @@ import arc from './images/arc.png';
 import models from './images/mesh.png';
 import trips from './images/trips.png';
 import screengrid from './images/screengrid.png';
+import composeLayer from './images/composeLayer.png';
+
+// Code Examples
+import mapboxLayer from './examples/mapboxLayer';
+import deckglLayer from './examples/deckglLayer';
+import compositeLayer from './examples/compositeLayer';
+import myCompositeLayer from './examples/myCompositeLayer';
+import addMyCompositeLayer from './examples/addMyCompositeLayer';
 
 // Require CSS
 require('normalize.css');
@@ -75,10 +84,54 @@ export default class Presentation extends Component {
         </Slide>
         {/* --------------- */}
         <Slide transition={['fade']} bgColor="primary">
+          <Heading size={2} lineHeight={1.2} textColor="secondary">
+            UBER
+          </Heading>
+        </Slide>
+        {/* --------------- */}
+        <Slide transition={['fade']} bgColor="primary">
+          <Heading size={2} lineHeight={1.2} textColor="secondary">
+            luma.gl
+          </Heading>
+        </Slide>
+        {/* --------------- */}
+        <Slide transition={['fade']} bgColor="primary">
+          <Heading size={4} textColor="secondary">
+            deck.gl
+          </Heading>
+          <Appear>
+            <Heading size={4} textColor="secondary">
+              &#8595;
+              <br/>
+              luma.gl
+            </Heading>
+          </Appear>
+          <Appear>
+            <Heading size={4} textColor="secondary">
+              &#8595;
+              <br/>
+              WebGL
+            </Heading>
+          </Appear>
+        </Slide>
+        {/* --------------- */}
+        <Slide transition={['fade']} bgColor="primary">
+          <Heading size={3} lineHeight={1.2} textColor="secondary">
+            Преимущества
+          </Heading>
+        </Slide>
+        {/* --------------- */}
+        <Slide transition={['fade']} bgColor="primary">
           <List textColor="secondary">
-            <ListItem>Готовый набор слоев для визуализации данных</ListItem>
+            <ListItem>Высокоточные вычисления на GPU</ListItem>
             <Appear>
-              <ListItem>Высокоточные вычисления на GPU</ListItem>
+              <ListItem>Обработка больших объемов данных и быстрая отрисовка</ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>Готовый набор слоев для визуализации данных</ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>Легко создавать новые слои или настраивать существующие</ListItem>
             </Appear>
             <Appear>
               <ListItem>Интеграция с React и Mapbox GL</ListItem>
@@ -87,34 +140,8 @@ export default class Presentation extends Component {
         </Slide>
         {/* --------------- */}
         <Slide transition={['fade']} bgColor="primary">
-          <Heading size={5} lineHeight={1.2} textColor="secondary">
-            Как это работает
-          </Heading>
-        </Slide>
-        {/* --------------- */}
-        <Slide transition={['fade']} bgColor="primary">
-            <Heading size={4} textColor="secondary">
-              deck.gl
-            </Heading>
-            <Appear>
-              <Heading size={4} textColor="secondary">
-                &#8595;
-                <br/>
-                luma.gl
-              </Heading>
-            </Appear>
-            <Appear>
-              <Heading size={4} textColor="secondary">
-                &#8595;
-                <br/>
-                WebGL
-              </Heading>
-            </Appear>
-        </Slide>
-        {/* --------------- */}
-        <Slide transition={['fade']} bgColor="primary">
-          <Heading size={4} textColor="secondary">
-            deck.gl + mapbox-gl-js
+          <Heading size={3} textColor="secondary">
+            deck.gl + mapbox-gl
           </Heading>
         </Slide>
         {/* --------------- */}
@@ -140,43 +167,75 @@ export default class Presentation extends Component {
         {/* --------------- */}
         <Slide transition={['fade']} bgColor="primary">
           <Heading size={2} textColor="secondary" margin={50}>
-            Layers
-          </Heading>
-          <Heading size={4} textColor="secondary" margin={50}>
-            Mapbox vs deck.gl
+            Слои
           </Heading>
         </Slide>
         {/* --------------- */}
         <Slide transition={['fade']} bgColor="primary">
           <Table>
             <TableRow>
-              <TableHeaderItem>mapbox</TableHeaderItem>
-              <TableHeaderItem>deck.gl</TableHeaderItem>
+              <TableHeaderItem textSize={60}>mapbox</TableHeaderItem>
             </TableRow>
             <Appear>
               <TableRow>
                 <TableItem>Circle</TableItem>
-                <TableItem>Scatterplot</TableItem>
               </TableRow>
             </Appear>
             <Appear>
               <TableRow>
                 <TableItem>Fill</TableItem>
-                <TableItem>Polygon</TableItem>
               </TableRow>
             </Appear>
             <Appear>
               <TableRow>
-                <TableItem>Line</TableItem>
                 <TableItem>Line</TableItem>
               </TableRow>
             </Appear>
             <Appear>
               <TableRow>
                 <TableItem>Symbol</TableItem>
-                <TableItem>Icon</TableItem>
               </TableRow>
             </Appear>
+            <TableRow>
+              <TableItem textColor="primary">-</TableItem>
+            </TableRow>
+            <TableRow>
+              <TableItem textColor="primary">-</TableItem>
+            </TableRow>
+            <TableRow>
+              <TableItem textColor="primary">-</TableItem>
+            </TableRow>
+            <TableRow>
+              <TableItem textColor="primary">-</TableItem>
+            </TableRow>
+            <TableRow>
+              <TableItem textColor="primary">-</TableItem>
+            </TableRow>
+          </Table>
+        </Slide>
+        {/* --------------- */}
+        <Slide transition={['fade']} bgColor="primary">
+          <Table>
+            <TableRow>
+              <TableHeaderItem textSize={60}>mapbox</TableHeaderItem>
+              <TableHeaderItem textSize={60}>deck.gl</TableHeaderItem>
+            </TableRow>
+            <TableRow>
+              <TableItem>Circle</TableItem>
+              <TableItem>Scatterplot</TableItem>
+            </TableRow>
+            <TableRow>
+              <TableItem>Fill</TableItem>
+              <TableItem>Polygon</TableItem>
+            </TableRow>
+            <TableRow>
+              <TableItem>Line</TableItem>
+              <TableItem>Line</TableItem>
+            </TableRow>
+            <TableRow>
+              <TableItem>Symbol</TableItem>
+              <TableItem>Icon</TableItem>
+            </TableRow>
             <Appear>
               <TableRow>
                 <TableItem />
@@ -253,13 +312,172 @@ export default class Presentation extends Component {
             Mapbox vs deck.gl
           </Heading>
         </Slide>
+        {/* --------------- */}
         <Slide transition={['fade']} bgColor="primary" textColor="primary">
           <PerformanceDemo />
         </Slide>
+        {/* --------------- */}
+        <Slide transition={['fade']} bgColor="primary">
+          <Heading size={4} textColor="secondary">
+            Отличие в работе со слоями
+          </Heading>
+        </Slide>
+        {/* --------------- */}
+        <Slide transition={['fade']} bgColor="primary" align='left'>
+          <Heading size={4} textColor="secondary" margin={30}>
+            Подключение слоя
+          </Heading>
+          <Heading size={4} textColor="secondary" margin={30}>
+            Mapbox
+          </Heading>
+          <CodePane
+            lang="jsx"
+            source={mapboxLayer}
+            overflow="overflow"
+            textSize={23}
+          />
+        </Slide>
+        {/* --------------- */}
+        <Slide transition={['fade']} bgColor="primary" align='left'>
+          <Heading size={4} textColor="secondary" margin={30}>
+            Подключение слоя
+          </Heading>
+          <Heading size={4} textColor="secondary" margin={30}>
+            deck.gl
+          </Heading>
+          <CodePane
+            lang="jsx"
+            source={deckglLayer}
+            overflow="overflow"
+            textSize={22}
+          />
+        </Slide>
+        {/* --------------- */}
+        <Slide transition={['fade']} bgColor="primary" align='left'>
+          <Heading size={4} textColor="secondary" margin={50}>
+            Основные методы работы со слоями Mapbox
+          </Heading>
+          <CodePane
+            lang="jsx"
+            source={`map.setPaintProperty('my-layer', 'fill-color', '#faafee');`}
+            overflow="overflow"
+            textSize={26}
+          />
+          <CodePane
+            lang="jsx"
+            source={`map.setLayoutProperty('my-layer', 'visibility', 'none');`}
+            overflow="overflow"
+            textSize={26}
+          />
+          <CodePane
+            lang="jsx"
+            source={`map.setFilter('my-layer', ['==', 'name', 'USA']);`}
+            overflow="overflow"
+            textSize={26}
+          />
+          <CodePane
+            lang="jsx"
+            source={`
+map.getSource('some id').setData({
+  "type": "FeatureCollection",
+  "features": [{
+      "type": "Feature",
+      "properties": { "name": "Null Island" },
+      "geometry": {
+          "type": "Point",
+          "coordinates": [ 0, 0 ]
+      }
+  }]
+});
+            `}
+            overflow="overflow"
+            textSize={26}
+          />
+        </Slide>
+        {/* --------------- */}
+        <Slide transition={['fade']} bgColor="primary" align='left'>
+          <Heading size={4} textColor="secondary" margin={50}>
+            Основные методы работы со слоями deck.gl
+          </Heading>
+          <CodePane
+            lang="jsx"
+            source={`const layer = new MapboxLayer({
+  id: 'scatterplot-layer',
+  type: ScatterplotLayer,
+  ...
+});
+          `}
+            overflow="overflow"
+            textSize={34}
+          />
+
+          <CodePane
+            lang="jsx"
+            source={`layer.setProps({ visible: false });`}
+            overflow="overflow"
+            textSize={34}
+          />
+          <CodePane
+            lang="jsx"
+            source={`layer.setProps({ getRadius: 500 });`}
+            overflow="overflow"
+            textSize={34}
+          />
+          <CodePane
+            lang="jsx"
+            source={`layer.setProps({ data: this.state.data });`}
+            overflow="overflow"
+            textSize={34}
+          />
+        </Slide>
+        {/* --------------- */}
+        <Slide transition={['fade']} bgColor="primary">
+          <Heading size={2} textColor="secondary" margin={50}>
+            Composite Layers
+          </Heading>
+        </Slide>
+        {/* --------------- */}
+        <Slide transition={['fade']} bgColor="primary">
+          <Heading size={3} textColor="secondary" margin={50}>
+            Example
+          </Heading>
+          <CodePane
+            lang="jsx"
+            source={compositeLayer}
+            overflow="overflow"
+            textSize={22}
+          />
+        </Slide>
+        {/* --------------- */}
+        <Slide transition={['fade']} bgColor="primary" align={'left'}>
+          <CodePane
+            lang="jsx"
+            source={myCompositeLayer}
+            overflow="overflow"
+            textSize={22}
+          />
+        </Slide>
+        {/* --------------- */}
+        <Slide transition={['fade']} bgColor="primary">
+          <CodePane
+            lang="jsx"
+            source={addMyCompositeLayer}
+            overflow="overflow"
+            textSize={26}
+          />
+        </Slide>
+        {/* --------------- */}
+        <Slide transition={['fade']} bgColor="primary">
+          <Image src={composeLayer} width={1000} height={600} />
+        </Slide>
+        {/* --------------- */}
         <Slide transition={['fade']} bgColor="primary">
           <Heading size={2} textColor="secondary" margin={50}>
             Конец
           </Heading>
+          <List>
+            <ListItem>Ссылки на ресурсы</ListItem>
+          </List>
         </Slide>
       </Deck>
     );
