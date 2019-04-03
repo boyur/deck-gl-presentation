@@ -34,10 +34,6 @@ import screengrid from './images/screengrid.png';
 import composeLayer from './images/composeLayer.png';
 
 // Code Examples
-import mapboxLayer from './examples/mapboxLayer';
-import deckglLayer from './examples/deckglLayer';
-import compositeLayer from './examples/compositeLayer';
-import myCompositeLayer from './examples/myCompositeLayer';
 import addMyCompositeLayer from './examples/addMyCompositeLayer';
 
 // Require CSS
@@ -96,26 +92,6 @@ export default class Presentation extends Component {
         </Slide>
         {/* --------------- */}
         <Slide transition={['fade']} bgColor="primary">
-          <Heading size={4} textColor="secondary">
-            deck.gl
-          </Heading>
-          <Appear>
-            <Heading size={4} textColor="secondary">
-              &#8595;
-              <br/>
-              luma.gl
-            </Heading>
-          </Appear>
-          <Appear>
-            <Heading size={4} textColor="secondary">
-              &#8595;
-              <br/>
-              WebGL
-            </Heading>
-          </Appear>
-        </Slide>
-        {/* --------------- */}
-        <Slide transition={['fade']} bgColor="primary">
           <Heading size={3} lineHeight={1.2} textColor="secondary">
             Преимущества
           </Heading>
@@ -123,18 +99,18 @@ export default class Presentation extends Component {
         {/* --------------- */}
         <Slide transition={['fade']} bgColor="primary">
           <List textColor="secondary">
-            <ListItem>Высокоточные вычисления на GPU</ListItem>
+            <ListItem padding={10}>Высокоточные вычисления на GPU</ListItem>
             <Appear>
-              <ListItem>Обработка больших объемов данных и быстрая отрисовка</ListItem>
+              <ListItem padding={10}>Обработка больших объемов данных и быстрая отрисовка</ListItem>
             </Appear>
             <Appear>
-              <ListItem>Готовый набор слоев для визуализации данных</ListItem>
+              <ListItem padding={10}>Готовый набор слоев для визуализации данных</ListItem>
             </Appear>
             <Appear>
-              <ListItem>Легко создавать новые слои или настраивать существующие</ListItem>
+              <ListItem padding={10}>Легко создавать новые слои или настраивать существующие</ListItem>
             </Appear>
             <Appear>
-              <ListItem>Интеграция с React и Mapbox GL</ListItem>
+              <ListItem padding={10}>Интеграция с React и Mapbox GL</ListItem>
             </Appear>
           </List>
         </Slide>
@@ -330,12 +306,54 @@ export default class Presentation extends Component {
           <Heading size={4} textColor="secondary" margin={30}>
             Mapbox
           </Heading>
-          <CodePane
-            lang="jsx"
-            source={mapboxLayer}
-            overflow="overflow"
-            textSize={23}
-          />
+          <Appear>
+            <div>
+              <CodePane
+                lang="jsx"
+                source={`
+    import { randomPoint } from '@turf/random';
+    // -- code --//
+    const points = randomPoint(100);
+                `}
+                overflow="overflow"
+                textSize={23}
+              />
+            </div>
+          </Appear>
+          <Appear>
+            <div>
+              <CodePane
+                lang="jsx"
+                source={`
+  this.map.on('load', () => {
+    this.map.addSource('points', { type: 'geojson', data: points });
+  `}
+                overflow="overflow"
+                textSize={23}
+              />
+            </div>
+          </Appear>
+          <Appear>
+            <div>
+              <CodePane
+                lang="jsx"
+                source={`
+    this.map.addLayer({
+      id: 'points',
+      type: 'circle',
+      source: 'points',
+      paint: {
+        'circle-radius': 6,
+        'circle-color': '#1978c8'
+      }
+    })
+  });
+  `}
+                overflow="overflow"
+                textSize={23}
+              />
+            </div>
+          </Appear>
         </Slide>
         {/* --------------- */}
         <Slide transition={['fade']} bgColor="primary" align='left'>
@@ -345,90 +363,172 @@ export default class Presentation extends Component {
           <Heading size={4} textColor="secondary" margin={30}>
             deck.gl
           </Heading>
-          <CodePane
-            lang="jsx"
-            source={deckglLayer}
-            overflow="overflow"
-            textSize={22}
-          />
+          <Appear>
+            <div>
+              <CodePane
+                lang="jsx"
+                source={`import { MapboxLayer } from '@deck.gl/mapbox';`}
+                overflow="overflow"
+                textSize={22}
+              />
+            </div>
+          </Appear>
+          <Appear>
+            <div>
+              <CodePane
+                lang="jsx"
+                source={
+  `import { ScatterplotLayer } from '@deck.gl/layers';
+import { randomPoint } from '@turf/random';`
+                }
+                overflow="overflow"
+                textSize={22}
+              />
+            </div>
+          </Appear>
+          <Appear>
+            <div>
+              <CodePane
+                lang="jsx"
+                source={
+`const layer = new MapboxLayer({
+  id: 'scatterplot-layer',
+  type: ScatterplotLayer,
+  data,
+  getRadius: 300,
+  getFillColor: [255, 140, 0],
+  getPosition: d => d.geometry.coordinates,
+});`
+                }
+                overflow="overflow"
+                textSize={22}
+              />
+            </div>
+          </Appear>
+          <Appear>
+            <div>
+              <CodePane
+                lang="jsx"
+                source={
+`// -- code --//
+this.map.on('load', () => {
+  this.map.addLayer(layer);
+});`
+                }
+                overflow="overflow"
+                textSize={22}
+              />
+            </div>
+          </Appear>
         </Slide>
         {/* --------------- */}
         <Slide transition={['fade']} bgColor="primary" align='left'>
           <Heading size={4} textColor="secondary" margin={50}>
             Основные методы работы со слоями Mapbox
           </Heading>
-          <CodePane
-            lang="jsx"
-            source={`map.setPaintProperty('my-layer', 'fill-color', '#faafee');`}
-            overflow="overflow"
-            textSize={26}
-          />
-          <CodePane
-            lang="jsx"
-            source={`map.setLayoutProperty('my-layer', 'visibility', 'none');`}
-            overflow="overflow"
-            textSize={26}
-          />
-          <CodePane
-            lang="jsx"
-            source={`map.setFilter('my-layer', ['==', 'name', 'USA']);`}
-            overflow="overflow"
-            textSize={26}
-          />
-          <CodePane
-            lang="jsx"
-            source={`
-map.getSource('some id').setData({
-  "type": "FeatureCollection",
-  "features": [{
-      "type": "Feature",
-      "properties": { "name": "Null Island" },
-      "geometry": {
-          "type": "Point",
-          "coordinates": [ 0, 0 ]
-      }
-  }]
-});
-            `}
-            overflow="overflow"
-            textSize={26}
-          />
+          <Appear>
+            <div>
+              <CodePane
+                lang="jsx"
+                source={`map.setPaintProperty('my-layer', 'fill-color', '#faafee');`}
+                overflow="overflow"
+                textSize={26}
+              />
+            </div>
+          </Appear>
+          <Appear>
+            <div>
+              <CodePane
+                lang="jsx"
+                source={`map.setLayoutProperty('my-layer', 'visibility', 'none');`}
+                overflow="overflow"
+                textSize={26}
+              />
+            </div>
+          </Appear>
+          <Appear>
+            <div>
+              <CodePane
+                lang="jsx"
+                source={`map.setFilter('my-layer', ['==', 'name', 'USA']);`}
+                overflow="overflow"
+                textSize={26}
+              />
+            </div>
+          </Appear>
+          <Appear>
+            <div>
+              <CodePane
+                lang="jsx"
+                source={`
+    map.getSource('some id').setData({
+      "type": "FeatureCollection",
+      "features": [{
+          "type": "Feature",
+          "properties": { "name": "Null Island" },
+          "geometry": {
+              "type": "Point",
+              "coordinates": [ 0, 0 ]
+          }
+      }]
+    });
+                `}
+                overflow="overflow"
+                textSize={26}
+              />
+            </div>
+          </Appear>
         </Slide>
         {/* --------------- */}
         <Slide transition={['fade']} bgColor="primary" align='left'>
           <Heading size={4} textColor="secondary" margin={50}>
             Основные методы работы со слоями deck.gl
           </Heading>
-          <CodePane
-            lang="jsx"
-            source={`const layer = new MapboxLayer({
-  id: 'scatterplot-layer',
-  type: ScatterplotLayer,
-  ...
-});
-          `}
-            overflow="overflow"
-            textSize={34}
-          />
-
-          <CodePane
-            lang="jsx"
-            source={`layer.setProps({ visible: false });`}
-            overflow="overflow"
-            textSize={34}
-          />
-          <CodePane
-            lang="jsx"
-            source={`layer.setProps({ getRadius: 500 });`}
-            overflow="overflow"
-            textSize={34}
-          />
-          <CodePane
-            lang="jsx"
-            source={`layer.setProps({ data: this.state.data });`}
-            overflow="overflow"
-            textSize={34}
-          />
+          <Appear>
+            <div>
+              <CodePane
+                lang="jsx"
+                source={`const layer = new MapboxLayer({
+      id: 'scatterplot-layer',
+      type: ScatterplotLayer,
+      ...
+    });
+              `}
+                overflow="overflow"
+                textSize={34}
+              />
+            </div>
+          </Appear>
+          <Appear>
+            <div>
+              <CodePane
+                lang="jsx"
+                source={`layer.setProps({ visible: false });`}
+                overflow="overflow"
+                textSize={34}
+              />
+            </div>
+          </Appear>
+          <Appear>
+            <div>
+              <CodePane
+                lang="jsx"
+                source={`layer.setProps({ getRadius: 500 });`}
+                overflow="overflow"
+                textSize={34}
+              />
+            </div>
+          </Appear>
+          <Appear>
+            <div>
+              <CodePane
+                lang="jsx"
+                source={`layer.setProps({ data: this.state.data });`}
+                overflow="overflow"
+                textSize={34}
+              />
+            </div>
+          </Appear>
         </Slide>
         {/* --------------- */}
         <Slide transition={['fade']} bgColor="primary">
@@ -437,25 +537,80 @@ map.getSource('some id').setData({
           </Heading>
         </Slide>
         {/* --------------- */}
-        <Slide transition={['fade']} bgColor="primary">
-          <Heading size={3} textColor="secondary" margin={50}>
-            Example
-          </Heading>
-          <CodePane
-            lang="jsx"
-            source={compositeLayer}
-            overflow="overflow"
-            textSize={22}
-          />
-        </Slide>
-        {/* --------------- */}
         <Slide transition={['fade']} bgColor="primary" align={'left'}>
           <CodePane
             lang="jsx"
-            source={myCompositeLayer}
+            source={`import { CompositeLayer } from '@deck.gl/core';
+import { ScatterplotLayer, ArcLayer } from '@deck.gl/layers';`}
             overflow="overflow"
-            textSize={22}
+            textSize={24}
           />
+          <Appear>
+            <div>
+              <CodePane
+                lang="jsx"
+                source={`
+export default class MyCompositeLayer extends CompositeLayer {
+  renderLayers() {`}
+                overflow="overflow"
+                textSize={24}
+              />
+            </div>
+          </Appear>
+          <Appear>
+            <div>
+              <CodePane
+                lang="jsx"
+                source={`   const {
+      id, data, showPoints, pointRadius,
+      pointColor, type, ...arcProps
+    } = this.props;
+    
+    return [
+      showPoints && new ScatterplotLayer({
+        id: 'scatterplot-layer-from',
+        data,
+        filled: true,
+        getRadius: pointRadius,
+        getFillColor: pointColor,
+        getPosition: d => d.from.coordinates,
+      }),`}
+                overflow="overflow"
+                textSize={24}
+              />
+            </div>
+          </Appear>
+          <Appear>
+            <div>
+              <CodePane
+                lang="jsx"
+                source={`      showPoints && new ScatterplotLayer({
+       id: 'scatterplot-layer-to',
+       ...
+       getPosition: d => d.to.coordinates,
+     }),`}
+                overflow="overflow"
+                textSize={24}
+              />
+            </div>
+          </Appear>
+          <Appear>
+            <div>
+              <CodePane
+                lang="jsx"
+                source={`      new ArcLayer({
+          id: 'arc-layer',
+          data,
+          ...arcProps
+        })
+      ];
+    }
+  }`}
+                overflow="overflow"
+                textSize={24}
+              />
+            </div>
+          </Appear>
         </Slide>
         {/* --------------- */}
         <Slide transition={['fade']} bgColor="primary">
@@ -475,9 +630,6 @@ map.getSource('some id').setData({
           <Heading size={2} textColor="secondary" margin={50}>
             Конец
           </Heading>
-          <List>
-            <ListItem>Ссылки на ресурсы</ListItem>
-          </List>
         </Slide>
       </Deck>
     );
