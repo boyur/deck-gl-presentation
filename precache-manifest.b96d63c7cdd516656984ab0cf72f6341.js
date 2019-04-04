@@ -4,8 +4,8 @@ self.__precacheManifest = [
     "url": "/deck-gl-presentation/static/media/hex.49a9e20a.png"
   },
   {
-    "revision": "f4ded40407752b982c15",
-    "url": "/deck-gl-presentation/static/js/main.f4ded404.chunk.js"
+    "revision": "26a7973623bdc75f52ad",
+    "url": "/deck-gl-presentation/static/js/main.26a79736.chunk.js"
   },
   {
     "revision": "ed2d3f729d64457402baa110c7033cad",
@@ -48,7 +48,7 @@ self.__precacheManifest = [
     "url": "/deck-gl-presentation/static/css/1.0e7f2436.chunk.css"
   },
   {
-    "revision": "67739c92d89c661892a9afed0ebc41dd",
+    "revision": "7612ddce0d054fdd049fd00fc8493ad7",
     "url": "/deck-gl-presentation/index.html"
   }
 ];
