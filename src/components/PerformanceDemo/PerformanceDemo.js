@@ -53,11 +53,15 @@ class PerformanceDemo extends PureComponent {
     const points = randomPoint(this.state.count);
     this.setState({ points });
     deckLayer.setProps({ data: points.features });
-    window.requestAnimationFrame(this.updatePints);
+    this.animationId = window.requestAnimationFrame(this.updatePints);
   };
 
   componentDidMount() {
-    window.requestAnimationFrame(this.updatePints);
+    this.animationId = window.requestAnimationFrame(this.updatePints);
+  }
+
+  componentWillUnmount() {
+    window.cancelAnimationFrame(this.animationId)
   }
 
   render() {
