@@ -14,11 +14,14 @@ import {
   TableRow,
   TableHeaderItem,
   TableItem,
-  CodePane
+  CodePane,
+  Text
 } from 'spectacle';
 
 import TripsDemo from './components/TripsDemo';
 import PerformanceDemo from './components/PerformanceDemo';
+import ExampleOldDeckGL from './components/ExampleOldDeckGL';
+import ExampleDeckGL from './components/ExampleDeckGL';
 
 // Import theme
 import createTheme from 'spectacle/lib/themes/default';
@@ -43,7 +46,7 @@ const theme = createTheme(
   {
     primary: '#253041',
     secondary: '#CECECE',
-    tertiary: '#03A9FC',
+    tertiary: '#0d121d',
     quaternary: '#CECECE',
     transparent: 'transparent',
     white: 'white'
@@ -60,15 +63,26 @@ export default class Presentation extends Component {
       <Deck
         transitionDuration={500}
         theme={theme}
+        progress='number'
+        showFullscreenControl={false}
       >
         {/* --------------- */}
         <Slide transition={['fade']} bgColor="transparent">
           <TripsDemo />
-          <Heading size={2} textColor="secondary">
+          <Heading size={2} textColor="secondary" margin='10vh 0'>
             deck.gl
             <br />
             И как его готовить
           </Heading>
+          <Text align='left' textColor="secondary">
+            Артем Боюр
+          </Text>
+          <Text align='left' textColor="secondary">
+            Разработчик интерфейсов
+          </Text>
+          <Text align='left' textColor="secondary">
+            URBICA
+          </Text>
         </Slide>
         {/* --------------- */}
         <Slide transition={['fade']} bgColor="primary">
@@ -131,6 +145,10 @@ export default class Presentation extends Component {
           <Image src={after} />
         </Slide>
         {/* --------------- */}
+        <Slide transition={['fade']} bgColor="transparent">
+          <ExampleOldDeckGL />
+        </Slide>
+        {/* --------------- */}
         <Slide transition={['fade']} bgColor="white">
           <Heading size={6} textColor="primary">
             {'mapbox-gl-js'}
@@ -139,6 +157,10 @@ export default class Presentation extends Component {
             {'0.50.0'}
           </Heading>
           <Image src={before} />
+        </Slide>
+        {/* --------------- */}
+        <Slide transition={['fade']} bgColor="transparent">
+          <ExampleDeckGL />
         </Slide>
         {/* --------------- */}
         <Slide transition={['fade']} bgColor="primary">
@@ -245,11 +267,10 @@ export default class Presentation extends Component {
           </Table>
         </Slide>
         {/* --------------- */}
-        <Slide transition={['fade']} bgColor="primary">
-          <Heading size={4} textColor="secondary" margin={50}>
+        <Slide transition={['fade']} bgImage={arc}>
+          <Heading size={3} textColor="tertiary" margin={50}>
             Arc
           </Heading>
-          <Image src={arc} width={800} height={500} />
         </Slide>
         {/* --------------- */}
         <Slide transition={['fade']} bgColor="primary">
