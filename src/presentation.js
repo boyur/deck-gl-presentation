@@ -331,13 +331,11 @@ export default class Presentation extends Component {
             <div>
               <CodePane
                 lang="jsx"
-                source={`
-    import { randomPoint } from '@turf/random';
-    // -- code --//
-    const points = randomPoint(100);
-                `}
+                source={`import { randomPoint } from '@turf/random';
+// -- code --//
+const points = randomPoint(100);`}
                 overflow="overflow"
-                textSize={23}
+                textSize={18}
               />
             </div>
           </Appear>
@@ -345,12 +343,10 @@ export default class Presentation extends Component {
             <div>
               <CodePane
                 lang="jsx"
-                source={`
-  this.map.on('load', () => {
-    this.map.addSource('points', { type: 'geojson', data: points });
-  `}
+                source={`this.map.on('load', () => {
+this.map.addSource('points', { type: 'geojson', data: points });`}
                 overflow="overflow"
-                textSize={23}
+                textSize={18}
               />
             </div>
           </Appear>
@@ -358,8 +354,7 @@ export default class Presentation extends Component {
             <div>
               <CodePane
                 lang="jsx"
-                source={`
-    this.map.addLayer({
+                source={`this.map.addLayer({
       id: 'points',
       type: 'circle',
       source: 'points',
@@ -368,10 +363,9 @@ export default class Presentation extends Component {
         'circle-color': '#1978c8'
       }
     })
-  });
-  `}
+  });`}
                 overflow="overflow"
-                textSize={23}
+                textSize={18}
               />
             </div>
           </Appear>
@@ -390,7 +384,7 @@ export default class Presentation extends Component {
                 lang="jsx"
                 source={`import { MapboxLayer } from '@deck.gl/mapbox';`}
                 overflow="overflow"
-                textSize={22}
+                textSize={20}
               />
             </div>
           </Appear>
@@ -403,7 +397,7 @@ export default class Presentation extends Component {
 import { randomPoint } from '@turf/random';`
                 }
                 overflow="overflow"
-                textSize={22}
+                textSize={20}
               />
             </div>
           </Appear>
@@ -422,7 +416,7 @@ import { randomPoint } from '@turf/random';`
 });`
                 }
                 overflow="overflow"
-                textSize={22}
+                textSize={20}
               />
             </div>
           </Appear>
@@ -437,7 +431,7 @@ this.map.on('load', () => {
 });`
                 }
                 overflow="overflow"
-                textSize={22}
+                textSize={20}
               />
             </div>
           </Appear>
@@ -453,7 +447,7 @@ this.map.on('load', () => {
                 lang="jsx"
                 source={`map.setPaintProperty('my-layer', 'fill-color', '#faafee');`}
                 overflow="overflow"
-                textSize={26}
+                textSize={22}
               />
             </div>
           </Appear>
@@ -463,7 +457,7 @@ this.map.on('load', () => {
                 lang="jsx"
                 source={`map.setLayoutProperty('my-layer', 'visibility', 'none');`}
                 overflow="overflow"
-                textSize={26}
+                textSize={22}
               />
             </div>
           </Appear>
@@ -473,7 +467,7 @@ this.map.on('load', () => {
                 lang="jsx"
                 source={`map.setFilter('my-layer', ['==', 'name', 'USA']);`}
                 overflow="overflow"
-                textSize={26}
+                textSize={22}
               />
             </div>
           </Appear>
@@ -495,7 +489,7 @@ this.map.on('load', () => {
     });
                 `}
                 overflow="overflow"
-                textSize={26}
+                textSize={22}
               />
             </div>
           </Appear>
@@ -516,7 +510,7 @@ this.map.on('load', () => {
     });
               `}
                 overflow="overflow"
-                textSize={34}
+                textSize={26}
               />
             </div>
           </Appear>
@@ -526,7 +520,7 @@ this.map.on('load', () => {
                 lang="jsx"
                 source={`layer.setProps({ visible: false });`}
                 overflow="overflow"
-                textSize={34}
+                textSize={26}
               />
             </div>
           </Appear>
@@ -536,7 +530,7 @@ this.map.on('load', () => {
                 lang="jsx"
                 source={`layer.setProps({ getRadius: 500 });`}
                 overflow="overflow"
-                textSize={34}
+                textSize={26}
               />
             </div>
           </Appear>
@@ -546,7 +540,7 @@ this.map.on('load', () => {
                 lang="jsx"
                 source={`layer.setProps({ data: this.state.data });`}
                 overflow="overflow"
-                textSize={34}
+                textSize={26}
               />
             </div>
           </Appear>
@@ -564,7 +558,7 @@ this.map.on('load', () => {
             source={`import { CompositeLayer } from '@deck.gl/core';
 import { ScatterplotLayer, ArcLayer } from '@deck.gl/layers';`}
             overflow="overflow"
-            textSize={24}
+            textSize={16}
           />
           <Appear>
             <div>
@@ -574,7 +568,7 @@ import { ScatterplotLayer, ArcLayer } from '@deck.gl/layers';`}
 export default class MyCompositeLayer extends CompositeLayer {
   renderLayers() {`}
                 overflow="overflow"
-                textSize={24}
+                textSize={16}
               />
             </div>
           </Appear>
@@ -597,7 +591,7 @@ export default class MyCompositeLayer extends CompositeLayer {
         getPosition: d => d.from.coordinates,
       }),`}
                 overflow="overflow"
-                textSize={24}
+                textSize={16}
               />
             </div>
           </Appear>
@@ -611,7 +605,7 @@ export default class MyCompositeLayer extends CompositeLayer {
        getPosition: d => d.to.coordinates,
      }),`}
                 overflow="overflow"
-                textSize={24}
+                textSize={16}
               />
             </div>
           </Appear>
@@ -628,7 +622,7 @@ export default class MyCompositeLayer extends CompositeLayer {
     }
   }`}
                 overflow="overflow"
-                textSize={24}
+                textSize={16}
               />
             </div>
           </Appear>
@@ -639,7 +633,7 @@ export default class MyCompositeLayer extends CompositeLayer {
             lang="jsx"
             source={addMyCompositeLayer}
             overflow="overflow"
-            textSize={26}
+            textSize={22}
           />
         </Slide>
         {/* --------------- */}
