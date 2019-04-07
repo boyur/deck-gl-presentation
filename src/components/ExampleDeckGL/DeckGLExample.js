@@ -62,16 +62,6 @@ const data = [
   },
 ];
 
-export const INITIAL_VIEW_STATE = {
-  longitude: -74,
-  latitude: 40.710,
-  zoom: 15,
-  maxZoom: 18,
-  minZoom: 15,
-  pitch: 45,
-  bearing: 0
-};
-
 mapboxgl.accessToken = 'pk.eyJ1IjoiYm95dXJhcnRlbSIsImEiOiJjajBkeWY4ZmwwMDEyMzJseG8wZDI4YW5pIn0.DBEWyIXo3VknCRDcqa7Msg';
 
 // Create a mapbox-compatible deck.gl layer
@@ -107,7 +97,7 @@ export class App extends Component {
     this.map = new mapboxgl.Map({
       container: 'map',
       style: 'mapbox://styles/boyurartem/cju5r7j0y10k51fo8dwdc8nw6',
-      center: [-74, 40.71],
+      center: [-74.005, 40.715],
       zoom: 15,
       pitch: 45,
       minZoom: 15

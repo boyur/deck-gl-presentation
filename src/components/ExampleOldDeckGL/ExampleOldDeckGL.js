@@ -62,8 +62,8 @@ const data = [
 ];
 
 export const INITIAL_VIEW_STATE = {
-  longitude: -74,
-  latitude: 40.710,
+  longitude: -74.005,
+  latitude: 40.715,
   zoom: 15,
   maxZoom: 18,
   minZoom: 15,
