@@ -29,12 +29,13 @@ import createTheme from 'spectacle/lib/themes/default';
 // Images
 import after from './images/after.png';
 import before from './images/before.png';
-import hex from './images/hex.png';
-import arc from './images/arc.png';
-import models from './images/mesh.png';
-import trips from './images/trips.png';
-import screengrid from './images/screengrid.png';
+import hex from './images/Screenshot_2.png';
+import arc from './images/Screenshot_1.png';
+import models from './images/ezgif.com-crop.gif';
+import trips from './images/Screenshot_4.png';
+import screengrid from './images/Screenshot_3.png';
 import composeLayer from './images/composeLayer.png';
+import qr from './images/qr.png';
 
 // Code Examples
 import addMyCompositeLayer from './examples/addMyCompositeLayer';
@@ -268,37 +269,34 @@ export default class Presentation extends Component {
         </Slide>
         {/* --------------- */}
         <Slide transition={['fade']} bgImage={arc}>
-          <Heading size={3} textColor="tertiary" margin={50}>
+          <Heading size={3} textColor="secondary" margin={50}>
             Arc
           </Heading>
         </Slide>
         {/* --------------- */}
-        <Slide transition={['fade']} bgColor="primary">
+        <Slide transition={['fade']} bgImage={hex}>
           <Heading size={4} textColor="secondary" margin={50}>
             Hexagon
           </Heading>
-          <Image src={hex} width={800} height={500} />
         </Slide>
         {/* --------------- */}
-        <Slide transition={['fade']} bgColor="primary">
+        <Slide transition={['fade']} bgImage={screengrid}>
           <Heading size={4} textColor="secondary" margin={50}>
             ScreenGrid
           </Heading>
-          <Image src={screengrid} width={800} height={500} />
+        </Slide>
+        {/* --------------- */}
+        <Slide transition={['fade']} bgImage={trips}>
+          <Heading size={4} textColor="secondary" margin={50}>
+            Trips
+          </Heading>
         </Slide>
         {/* --------------- */}
         <Slide transition={['fade']} bgColor="primary">
           <Heading size={4} textColor="secondary" margin={50}>
             Mesh
           </Heading>
-          <Image src={models} width={800} height={500} />
-        </Slide>
-        {/* --------------- */}
-        <Slide transition={['fade']} bgColor="primary">
-          <Heading size={4} textColor="secondary" margin={50}>
-            Trips
-          </Heading>
-          <Image src={trips} width={800} height={500} />
+          <Image src={models} width={800} height={450} />
         </Slide>
         {/* --------------- */}
         <Slide transition={['fade']} bgColor="primary">
@@ -641,10 +639,11 @@ export default class MyCompositeLayer extends CompositeLayer {
           <Image src={composeLayer} width={1000} height={600} />
         </Slide>
         {/* --------------- */}
-        <Slide transition={['fade']} bgColor="primary">
+        <Slide transition={['fade']} bgColor="primary" align='left'>
           <Heading size={2} textColor="secondary" margin={50}>
             Конец
           </Heading>
+          <Image src={qr} width={600} height={600}  />
         </Slide>
       </Deck>
     );
