@@ -3,6 +3,8 @@ Presentation: https://boyur.github.io/deck-gl-presentation/
 
 Presentation Source: https://github.com/boyur/deck-gl-presentation
 
+Deck.GL: https://github.com/uber/deck.gl
+
 Trips Example: https://github.com/boyur/deck-gl-trips-example
 
 Performance Example: https://github.com/boyur/deck-gl-performance
